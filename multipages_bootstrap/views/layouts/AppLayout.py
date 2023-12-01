@@ -1,13 +1,27 @@
 import dash
-from dash import html, dcc
+from views.partials.Sidebar import Sidebar
+from views.partials.Footer import Footer
+from dash import html, dcc, callback, Input, Output, State
 
 class AppLayout:
     @staticmethod
     def define_layout():
-        return html.Div([
-            html.H1('Multi-page app with Dash Pages'),
-            html.Div(dcc.Link('Home', href=dash.page_registry['Home']['path'])),
-            html.Div(dcc.Link('Archive', href=dash.page_registry['Archive']['path'])),
-            html.Div(dcc.Link('Analytics', href=dash.page_registry['Analytics']['path'])),
-            dash.page_container
-        ])
+        return html.Div(
+            children=[
+                Sidebar.define_layout(),
+                html.Div(
+                    children=[
+                        html.Div(
+                            children=[
+                                dash.page_container
+                            ],
+                            id = 'content',
+                        ),
+                        Footer.define_layout()
+                    ],
+                    id = 'content-wrapper',
+                    className='d-flex flex-column'
+                )
+            ],
+            id='wrapper',
+        )
