@@ -4,6 +4,7 @@ class HomePage:
     def __init__(self):
         self.name = 'Home'
         self.path = '/'
+        self.title = 'Densurbam - Inicio'
         self.set_layout()
 
     def set_layout(self):

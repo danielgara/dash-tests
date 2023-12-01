@@ -7,7 +7,7 @@ class Footer:
             html.Div(
                 html.Div(
                     html.Span([
-                        'Copyright © ',
+                        'Derechos de autor © ',
                         html.A('Urbam', href='https://www.eafit.edu.co/urbam', target='_blank'),
                         ' 2023'
                     ]),

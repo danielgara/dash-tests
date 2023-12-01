@@ -7,7 +7,7 @@ class Sidebar:
         return html.Ul([
                 html.A([
                         html.Div('D', className='sidebar-brand-icon rotate-n-15 display-icon', id='main-icon'),
-                        html.Div('DensUrbam', className='sidebar-brand-text mx-3')
+                        html.Div('Densurbam', className='sidebar-brand-text mx-3')
                     ],
                     className='sidebar-brand d-flex align-items-center justify-content-center',
                     href=dash.page_registry['Home']['path'],
@@ -16,7 +16,7 @@ class Sidebar:
                 html.Li(
                     dcc.Link([
                             html.I(className='fas fa-fw fa-home'),
-                            html.Span('Home'),
+                            html.Span('Inicio'),
                         ],
                         href=dash.page_registry['Home']['path'],
                         className='router-link-active router-link-exact-active nav-link'
@@ -26,7 +26,7 @@ class Sidebar:
                 html.Li(
                     dcc.Link([
                             html.I(className='fas fa-fw fa-info-circle'),
-                            html.Span('Analytics'),
+                            html.Span('Analíticas'),
                         ],
                         href=dash.page_registry['Analytics']['path'],
                         className='router-link-active router-link-exact-active nav-link'

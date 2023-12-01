@@ -3,7 +3,6 @@ import dash_bootstrap_components as dbc
 from dash import Dash
 from views.layouts.AppLayout import AppLayout
 from views.pages.HomePage import HomePage
-from views.pages.ArchivePage import ArchivePage
 from views.pages.AnalyticsPage import AnalyticsPage
 
 class App:
@@ -14,12 +13,16 @@ class App:
 
     def register_pages(self):
         self.home_page = HomePage()
-        self.archive_page = ArchivePage()
         self.analytics_page = AnalyticsPage()
 
-        dash.register_page(self.home_page.name, path=self.home_page.path, layout=self.home_page.layout)
-        dash.register_page(self.archive_page.name, path=self.archive_page.path, layout=self.archive_page.layout)
-        dash.register_page(self.analytics_page.name, path=self.analytics_page.path, layout=self.analytics_page.layout)
+        dash.register_page(
+            self.home_page.name, path=self.home_page.path, 
+            layout=self.home_page.layout, title=self.home_page.title
+        )
+        dash.register_page(
+            self.analytics_page.name, path=self.analytics_page.path, 
+            layout=self.analytics_page.layout, title=self.analytics_page.title
+        )
 
     def set_app_layout(self):
         self.app.layout = AppLayout.define_layout()

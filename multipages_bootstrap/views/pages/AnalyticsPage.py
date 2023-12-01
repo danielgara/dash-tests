@@ -4,6 +4,7 @@ class AnalyticsPage:
     def __init__(self):
         self.name = 'Analytics'
         self.path = '/analytics'
+        self.title = 'Densurbam - Analíticas'
         self.set_layout()
 
     def set_layout(self):
