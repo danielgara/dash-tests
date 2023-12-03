@@ -1,4 +1,5 @@
 from dash import html
+from views.components.Breadcrumb import Breadcrumb
 
 class HomePage:
     def __init__(self):
@@ -8,7 +9,12 @@ class HomePage:
         self.set_layout()
 
     def set_layout(self):
+        navigationList = [
+            {
+                'title': 'Inicio',
+                'route': './'
+            }
+        ]
         self.layout = html.Div([
-            html.H1('This is our Home page'),
-            html.Div('This is our Home page content.'),
+            Breadcrumb.define_layout(navigationList),
         ])

@@ -1,4 +1,5 @@
-from dash import html, dcc, callback, Input, Output
+from dash import html
+from views.components.Breadcrumb import Breadcrumb
 
 class AnalyticsPage:
     def __init__(self):
@@ -8,24 +9,16 @@ class AnalyticsPage:
         self.set_layout()
 
     def set_layout(self):
+        navigationList = [
+            {
+                'title': 'Inicio',
+                'route': './'
+            },
+            {
+                'title': 'Analíticas',
+                'route': self.path
+            }
+        ]
         self.layout = html.Div([
-            html.H1('This is our Analytics page'),
-            html.Div([
-                "Select a city: ",
-                dcc.RadioItems(
-                    options=['New York City', 'Montreal', 'San Francisco'],
-                    value='Montreal',
-                    id='analytics-input',
-                    persistence=True,
-                )
-            ]),
-            html.Br(),
-            html.Div(id='analytics-output'),
+            Breadcrumb.define_layout(navigationList),
         ])
-
-    @callback(
-        Output('analytics-output', 'children'),
-        Input('analytics-input', 'value')
-    )
-    def update_city_selected(input_value):
-        return 'You selected: '+input_value

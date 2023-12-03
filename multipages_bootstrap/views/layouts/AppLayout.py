@@ -1,20 +1,26 @@
 import dash
 from views.partials.Sidebar import Sidebar
 from views.partials.Footer import Footer
-from dash import html, dcc, callback, Input, Output, State
+from dash import html
 
 class AppLayout:
     @staticmethod
     def define_layout():
-        return html.Div(
-            children=[
+        return html.Div([
                 Sidebar.define_layout(),
-                html.Div(
-                    children=[
+                html.Div([
                         html.Div(
-                            children=[
-                                dash.page_container
-                            ],
+                            html.Div(
+                                html.Div(
+                                    html.Div(
+                                        dash.page_container,
+                                        className='col-lg-12 mb-12',
+                                    ),
+                                    className='row',
+                                ),
+                                id='page-content',
+                                className='container-fluid mar20'
+                            ),
                             id = 'content',
                         ),
                         Footer.define_layout()
